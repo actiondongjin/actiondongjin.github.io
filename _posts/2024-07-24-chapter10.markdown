@@ -5,7 +5,7 @@ published: true
 date:   2024-07-24 
 categories:
     - Data Science
-    - Study
+    - 데이터 분석가가 반드시 알아야할 모든 것
 tags: KHUDA ML
 ---
 # 데이터 분석가가 반드시 알아야할 모든 것
