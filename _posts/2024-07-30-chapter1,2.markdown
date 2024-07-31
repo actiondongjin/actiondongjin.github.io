@@ -44,9 +44,9 @@ tags: KHUDA ML
 >- [파이토치(PyTorch)](https://pytorch.org/)\
 페이스북이 오픈소스로 공개한 딥러닝 라이브러리
 
-|구글|페이스북|
-|:---:|:---:|
-|[텐서플로(TensorFlow)](https://www.tensorflow.org/)|[파이토치(PyTorch)](https://pytorch.org/)|
+|구글|페이스북
+|:---:|:---:
+|[텐서플로(TensorFlow)](https://www.tensorflow.org/)|[파이토치(PyTorch)](https://pytorch.org/)
 ## Chapter 1-2. 코랩과 주피터 노트북
 ### 구글 코랩(Colab)
 **웹 브라우저**에서 무료로 파이썬 프로그램을 테스트하고 저장할 수 있는 서비스
