@@ -164,7 +164,8 @@ from sklearn.neighbors import KNeighborsClassifier
 kn = KNeighborsClassifier()
 ```
 이 객체에 fish_data와 fish_target을 전달하여 도미를 찾기 위한 기준을 학습시키기
-> 머신러닝에서 이런 과정을 **훈련**(**training**)이라고 지칭\
+> 머신러닝에서 이런 과정을 **훈련**(**training**)이라고 지칭
+
 ```python
 kn.fit(fish_data, fish_target)
 ```
@@ -173,6 +174,7 @@ kn.fit(fish_data, fish_target)
 kn.score(fish_data, fish_target)
 ```
 `1.0`
+
 모든 fish_data의 답을 정확히 맞혔고, 그래서 1.0이 출력
 
 이 값을 **정확도**(**accuracy**)라고 지칭
@@ -187,6 +189,7 @@ KNeighborsClassifier 클래스의 기본값은 5이고, 따라서 가까운 5개
 kn.predict([[30, 600]])
 ```
 `array([1])`
+
 predict 메서드는 새로운 데이터의 정답을 예측
 
 반환되는 값이 1이므로 도미 예측 가능
