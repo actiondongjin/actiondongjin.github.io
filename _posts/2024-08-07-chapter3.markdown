@@ -13,7 +13,8 @@ tags: KHUDA ML
 ### k-최근접 이웃 회귀
 > 지도 학습 알고리즘의 종류 두가지
 > - 분류 : 샘플을 몇 개의 클래스 중 하나로 분류하는 문제
-> - 회귀 : 임의의 어떤 숫자를 예측하는 문제
+> - 회귀 : 임의의 어떤 숫자를 예측하는 문제\
+
 **k-최근접 이웃 분류 알고리즘**
 ![k-최근접 이웃 분류 알고리즘](/assets/img/k-최근접%20이웃%20분류%20알고리즘.png)
 **k-최근접 이웃 회귀 알고리즘**
@@ -43,8 +44,9 @@ plt.xlabel('length')
 plt.ylabel('weight')
 plt.show()
 ```
-![농어 데이터 산점도](/assets/img/농어%20산점도.png)
-농어의 길이가 커짐에 따라 무게도 늘어나네요.
+![농어 데이터 산점도](/assets/img/농어%20산점도.png)\
+
+농어의 길이가 커짐에 따라 무게도 늘어나네요.\
 이제 농어 데이터를 머신러닝 모델에 사용하기 전에 훈련 세트와 테스트 세트로 나눠봅시다.
 ```python
 from sklearn.model_selection import train_test_split
@@ -60,8 +62,8 @@ print(train_input.shape, test_input.shape)
 이제 준비한 훈련 세트를 활용하여 k-최근접 이웃 알고리즘을 훈련시켜 보죠.
 
 ### 결정계수(R<sup>2</sup>)
-사이킷런에서 k-최근접 이웃 회귀 알고리즘을 구현한 클래스는 KNeighborsRegressor입니다.
-이 클래스의 사용번은 KNeighborsClassifier와 매우 비슷합니다.
+사이킷런에서 k-최근접 이웃 회귀 알고리즘을 구현한 클래스는 KNeighborsRegressor입니다.\
+이 클래스의 사용법은 KNeighborsClassifier와 매우 비슷합니다.\
 객체를 생성하고 fit() 메서드로 회귀 모델을 훈련하겠습니다.
 ```python
 from sklearn.neighbors import KNeighborsRegressor
@@ -75,7 +77,7 @@ knr.fit(train_input, train_target)
 ```python
 print(knr.score(test_input, test_target))
 ```
-`0.992809406101064`
+`0.992809406101064`\
 이 점수를 **결정계수** 또는 간단히 R<sup>2</sup>라고 부릅니다.
 결정계수의 계산 방식은 다음과 같습니다.
 R^2^ = 1 - (타깃 - 예측)<sup>2</sup>/(타깃 - 평균)<sup>2</sup>
