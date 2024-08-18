@@ -83,7 +83,8 @@ print(dt.score(test_scaled, test_target))
 훈련 세트에 대한 점수가 엄청 높고 테스트 세트의 성능은 그에 비해 조금 낮으므로 과대적합된 모델이라고 볼 수 있습니다.
 이 모델을 사이킷런에서는 plot_tree() 함수를 사용해 이해하기 쉬운 트리 그림으로 출력할 수 있습니다.
 위에서 만든 결정 트리 모델 객체를 plot_tree() 함수에 전달해서 어떤 트리가 만들어졌는지 그려보죠.
-![결정트리](/assets/img/결정%20트리.png)
+    
+![결정트리](/assets/img/결정트리.png)
 결정 트리는 위에서부터 아래로 자라납니다.
 맨 위의 노드를 루트 노드(root node)라 부르고 맨 아래 끝에 달린 노드를 리프 노드(leaf node)라고합니다.
 > 노드가 뭔가요?
@@ -98,7 +99,7 @@ plt.figure(figsize=(10, 7))
 plot_tree(dt, max_depth=1, filled=True, feature_names=['alcohol', 'sugar', 'pH'])
 plt.show()
 ```
-![결정트리2](/assets/img/결정%20트리2.png)
+![결정트리2](/assets/img/결정%트리2.png)
 결정 트리에서 예측하는 방법은 간단합니다.
 리프 노드에서 가장 많은 클래스가 예측 클래스가 됩니다.
 #### 불순도
