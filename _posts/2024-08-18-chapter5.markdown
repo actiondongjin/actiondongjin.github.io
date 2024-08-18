@@ -1,0 +1,23 @@
+---
+layout: post
+title:  "혼자 공부하는 머신러닝+딥러닝 Chapter 5"
+published: true
+date:   2024-08-04 
+categories:
+    - Data Science
+    - 혼자 공부하는 머신러닝+딥러닝
+tags: KHUDA ML
+---
+# 5. 트리 알고리즘
+## 5-1. 결정 트리
+### 로지스틱 회귀로 와인 분류하기
+- 와인 데이터 불러오기
+```python
+import pandas as pd
+wine = pd.read_csv('https://bit.ly/wine-date')
+```
+와인 데이터셋을 제대로 읽어 들였는지 head() 메서드로 처음 5개의 샘플을 확인해봅니다.
+```python
+wine.head()
+```
+![와인데이터](/assets/img/와인%20헤드.png)
