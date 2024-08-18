@@ -32,6 +32,22 @@ wine.info()
 > ![판다스인포](/assets/img/판다스인포.png)
 >- describe() : 열에 대한 간략한 통계를 출력해 줍니다.
 > ```python
-describe.info()
+wine.describe()
 ```
 > ![판다스디스크라이브](/assets/img/판다스디스크라이브.png)
+
+판다스 데이터프레임을 넘파이 배열로 바꾸고 훈련 세트와 테스트 세트로 나눕니다.
+```python
+data = wine[['alcohol', 'sugar', 'pH']].to_numpy()
+target = wine['class'].to_numpy()
+```
+이제 훈련 세트와 테스트 세트로 나눕니다.
+```python
+from sklearn.model_selection import train_test_split
+train_input, test_input, train_target, test_target = train_test_split(data, target, test_size=0.2, random_state=42)
+```
+만들어진 훈련 세트와 테스트 세트의 크기를 확인해보죠.
+```python
+print(train_input.shape, test_input.shape)
+```
+`(5197,3) (1300, 3)`
