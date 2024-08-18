@@ -87,7 +87,7 @@ plt.show()
 ```python
 plt.figure(figsize=(10, 7))
 
-# 트리깊이 제한(max_depth매개변수)
+# 트리 깊이 제한(max_depth 매개변수)
 # 노드 색 칠하기(filled 매개변수)
 # 노드 이름 전달(feature_names 매개변수)
 plot_tree(dt, max_depth=1, filled=True, feature_names=['alcohol', 'sugar', 'pH'])
@@ -109,3 +109,27 @@ plt.show()
 > 엔트로피 불순도 계산법 : \
 > -음성 클래스 비율 x log<sub>2</sub>(음성 클래스 비율) - 양성 클래스 비율x log<sub>2</sub>(양성 클래스 비율)\
 {: .prompt-tip }
+### 가지치기
+무작정 끝까지 자라나는 트리가 만들어지는 것을 방지하기 위해 트리의 최대 깊이를 지정
+```python
+dt = DecisionTreeClassifier(max_depth=3, random_state=42)
+dt.fit(train_scaled, train_target)
+print(dt.score(train_scaled, train_target))
+print(dt.score(test_scaled, test_target))
+```
+`0.8454877814123533`
+`0.8415384615384616`\
+훈련 세트의 성능은 낮아졌지만 테스트 세트의 성능은 거의 그대로
+```python
+# 트리 그래프 그리기
+plt.figure(0, figsize=(20, 15))
+plot_tree(dt, filled=True, feature_names=['alcohol', 'sugar', 'pH'])
+plt.show()
+```
+![결정트리4](/assets/img/결정트리4-2.png)\
+결정 트리는 어떤 특성이 가장 유용한지 나타내는 **특성 중요도**를 계산해줌.\
+위 트리의 루트 노드와 깊이 1에서 당도를 사용했기 때문에 당도가 가장 유용한 특성 중 하나일 것으로 추측됨.
+- 특성 중요도 : 결정 트리에 사용된 특성이 불순도를 감소하는데 기여한 정도\
+- 특성 중요도 계산법 :\
+각 노드의 정보 이득과 전체 샘플에 대한 비율을 곱한 후 특성별로 더하여 계산\
+
