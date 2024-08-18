@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "혼자 공부하는 머신러닝+딥러닝 Chapter 5 발표"
+published: true
+date:   2024-08-19 
+categories:
+    - Data Science
+    - 혼자 공부하는 머신러닝+딥러닝
+tags: KHUDA ML
+---
+# 5. 트리 알고리즘
+## 5-1. 결정 트리
+**결정 트리**(**Decision Tree**):\
+ 예 / 아니오에 대한 질문을 이어나가면서 정답을 찾아 학습하는 알고리즘
+> 판다스 데이터프레임의 유용한 메서드 2개
+> info() 메서드:
+> 데이터 프레임의 각 열의 데이터 타입과 누락한 데이터가 있는지 확인하는데 유용
+> describe() 메서드:
+> 평균(mean), 표준편차(std), 최소(min), 최대(max), 중간값 (50%), 1분위사수(25%), 3분위사수(75%) 제공 {: .prompt-tip }
+### 로지스틱 회귀로 와인 분류하기
+```python
+# 와인 데이터 준비
+import pandas as pd
+wine = pd.read_csv('https://bit.ly/wine-date')
+
+# 넘파이 배열로 바꾸고 훈련 세트와 테스트 세트로 나누기
+data = wine[['alcohol', 'sugar', 'pH']].to_numpy()
+target = wine['class'].to_numpy()
+from sklearn.model_selection import train_test_split
+train_input, test_input, train_target, test_target = train_test_split(data, target, test_size=0.2, random_state=42)
+
+# StandardScaler 클래스를 사용하여 훈련 세트 전처리
+from sklearn.preprocessing import StandardScaler
+ss = StandardScaler()
+ss.fit(train_input)
+train_scaled = ss.transform(train_input)
+test_scaled = ss.transform(test_input)
+
+# 표준점수로 변환된 train_scaled와 test_scaled를 사용해 로지스틱 회귀 모델을 훈련
+from sklearn.linear_model import LogisticRegression
+lr = LogisticRegression()
+lr.fit(train_scaled, train_target)
+print(lr.score(train_scaled, train_target))
+print(lr.score(test_scaled, test_target))
+```
+`0.7808350971714451`
+`0.7776923076923077`
+훈련 세트와 테스트 세트의 점수가 모두 낮으므로 모델이 다소 과소적합됨
