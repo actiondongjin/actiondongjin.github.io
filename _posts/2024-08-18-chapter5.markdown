@@ -51,3 +51,43 @@ train_input, test_input, train_target, test_target = train_test_split(data, targ
 print(train_input.shape, test_input.shape)
 ```
 `(5197,3) (1300, 3)`
+훈련 세트는 5197개이고, 테스트 세트는 1300개입니다.
+이제 StandardScaler 클래스를 사용해 훈련 세트를 전처리해 보죠.
+```python
+from sklearn.preprocessing import StandardScaler
+ss = StandardScaler()
+ss.fit(train_input)
+train_scaled = ss.transform(train_input)
+test_scaled = ss.transform(test_input)
+```
+모든 준비가 끝났고, 이제 표준점수로 변환된 train_scaled와 test_scaled를 사용해 로지스틱 회귀 모델을 훈련하겠습니다.
+```python
+from sklearn.linear_model import LogisticRegression
+lr = LogisticRegression()
+lr.fit(train_scaled, train_target)
+print(lr.score(train_scaled, train_target))
+print(lr.score(test_scaled, test_target))
+```
+`0.7808350971714451`
+`0.7776923076923077`
+훈련 세트와 테스트 세트의 점수가 모두 낮으니 모델이 다소 과소적합된 것 같습니다.
+### 결정 트리(Decision Tree)
+결정 트리 모델은 스무고개와 같고 사이킷런이 결정 트리 알고리즘을 제공합니다.
+사이킷런의 DecisionTreeClassifier 클래스를 사용해 결정 트리 모델을 훈련해 보죠.
+```python
+from sklearn.tree import DecisionTreeClassifier
+dt = DecisionTreeClassifier()
+dt.fit(train_scaled, train_target)
+print(dt.score(train_scaled, train_target))
+print(dt.score(test_scaled, test_target))
+```
+`0.996921300750433`
+`0.8576923076923076`
+훈련 세트에 대한 점수가 엄청 높고 테스트 세트의 성능은 그에 비해 조금 낮으므로 과대적합된 모델이라고 볼 수 있습니다.
+이 모델을 사이킷런에서는 plot_tree() 함수를 사용해 이해하기 쉬운 트리 그림으로 출력할 수 있습니다.
+위에서 만든 결정 트리 모델 객체를 plot_tree() 함수에 전달해서 어떤 트리가 만들어졌는지 그려보죠.
+![결정트리](/assets/img/결정%20트리.png)
+결정 트리는 위에서부터 아래로 자라납니다.
+맨 위의 노드를 루트 노드(root node)라 부르고 맨 아래 끝에 달린 노드를 리프 노드(leaf node)라고합니다.
+> 노드가 뭔가요?
+> 결정 트리를 구성하는 핵심 요소로, 훈련 데이터의 특성에 대한 테스트를 표현합니다.{: .prompt-tip }
