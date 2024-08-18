@@ -11,7 +11,7 @@ tags: KHUDA ML
 # 5. 트리 알고리즘
 ## 5-1. 결정 트리
 ### 로지스틱 회귀로 와인 분류하기
-- 와인 데이터 불러오기
+우선, 와인 데이터를 불러옵니다.
 ```python
 import pandas as pd
 wine = pd.read_csv('https://bit.ly/wine-date')
