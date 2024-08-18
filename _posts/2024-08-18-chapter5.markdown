@@ -91,3 +91,20 @@ print(dt.score(test_scaled, test_target))
 맨 위의 노드를 루트 노드(root node)라 부르고 맨 아래 끝에 달린 노드를 리프 노드(leaf node)라고합니다.
 > 노드가 뭔가요?
 > 결정 트리를 구성하는 핵심 요소로, 훈련 데이터의 특성에 대한 테스트를 표현합니다.{: .prompt-tip }
+
+너무 복잡하니 트리의 깊이를 제한해서 출력해 보죠.
+max_depth 매개변수를 1로 주면 루트노드를 제외하고 하나의 노드를 더 확장하여 그립니다. 
+또 filled 매개변수에서 클래스에 맞게 노드의 색을 칠할 수 있습니다. feature_names 매개변수에는 특성의 이름을 전달할 수 있습니다.
+한번 이렇게 그려보죠.
+```python
+plt.figure(figsize=(10, 7))
+plot_tree(dt, max_depth=1, filled=True, feature_names=['alcohol', 'sugar', 'pH'])
+plt.show()
+```
+![결정트리2](/assets/img/결정%20트리2.png)
+결정 트리에서 예측하는 방법은 간단합니다.
+리프 노드에서 가장 많은 클래스가 예측 클래스가 됩니다.
+#### 불순도
+gini는 지니 불순도(Gini impurity)를 의미합니다. DecisionTreeClassifier 클래스의 노드에서 데이터를 분할할 기준을 정하는 criterion 매개변수의 기본값이 'gini'입니다.
+지니 불순도는 클래스의 비율을 제곱해서 더한 다음 1에서 빼면 됩니다.
+- 지니 불순도 = 1 - (음성 클래스 비율<sup>2</sup> + 양성 클래스 비율<sup>2</sup>)
