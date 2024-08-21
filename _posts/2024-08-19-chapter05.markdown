@@ -60,7 +60,7 @@ print(lr.score(test_scaled, test_target))
 훈련 세트와 테스트 세트의 점수가 모두 낮으므로 모델이 다소 과소적합
 ### 결정 트리
 결정 트리는 다음 그림과 같이 스무고개와 같다.\
-![결정트리](/assets/img/결정트리1.png)\
+![결정트리](/assets/img/결정트리스무고개.png)\
 사이킷런의 DecisionTreeClassifier 클래스를 사용해 결정 트리 모델 훈련해보기
 ```python
 # 결정 트리 모델 훈련
