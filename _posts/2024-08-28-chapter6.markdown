@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "혼자 공부하는 머신러닝+딥러닝 Chapter 6"
+published: true
+date:   2024-08-19 
+categories:
+    - Data Science
+    - 혼자 공부하는 머신러닝+딥러닝
+tags: KHUDA ML
+---
+# 6. 비지도학습
+## 6-1. 군집 알고리즘
+## 6-2. K-평균
+## 6-3. 주성분 분석
