@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "NLP 2주차"
+published: true
+date:   2024-09-11 
+categories:
+    - Data Science
+    - NLP
+tags: KHUDA NLP
+---
+# Bigram Model
+- 간단하고 약한 모델이지만, 문자 예측에 좋은 출발점입니다.
+- 문자 수열을 통해 뒤이어 오는 문자를 예측하는데, 모델은 한 번에 두 문자씩을 처리합니다.
+
+```pyhton
+words = open('names.txt', 'r').read().splitlines()
+```
